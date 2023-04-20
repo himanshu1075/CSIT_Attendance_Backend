@@ -19,10 +19,9 @@ export async function fetchStudentSubjectwise(request, response) {
     try {
         const sub = request.params.sub;
         const student = await studentModel.find({$and:[ {"subjects": { $in: [sub] }}, {"section":"csit-2"}]}).sort({ "enrollment": 1 });
-        // console.log(student);
+        
 
         response.status(StatusCodes.OK).json(student);
-        // console.log(moment.format("Do MMMM YYYY"));
     } catch (error) {
         response.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ "message": error.message });
     }
@@ -115,7 +114,7 @@ export async function updateAttandance(request, response) {
         const sub = request.params.subject;
         const student = await studentModel.findOne({ "enrollment": request.params.id });
         request.body[sub] = { ...student[sub], [day + ":" + month + ":" + year]: 1 }
-        console.log(request.body[sub]);
+        // console.log(request.body[sub]);
         await studentModel.findOneAndUpdate({ "enrollment": request.params.id }, request.body);
 
         const students = await studentModel.findOne({ "enrollment": request.params.id });
