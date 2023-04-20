@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(studentRouter);
 app.use(facultyRouter);
 
-app.listen((process.env.PORT || process.env.SERVER_PORT), ()=> {
+app.listen((process.env.PORT || 5500), ()=> {
     configureDB();
     console.log(`Server is running on Port ${ process.env.SERVER_PORT}`);
 })
