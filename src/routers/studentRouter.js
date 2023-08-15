@@ -6,7 +6,7 @@ const studentRouter = express.Router();
 
 studentRouter.post('/savestudent', saveStudent);
 studentRouter.get('/fetchallstudents', fetchAllStudents);
-studentRouter.get('/3rdyear/csit-2/subjects/:sub',verifyToken, fetchStudentSubjectwise);
+studentRouter.get('/3rdyear/csit-2/subjects/:sub', fetchStudentSubjectwise);
 studentRouter.put('/updatestudent/:id', updateStudent);
 studentRouter.put('/updateattandance/:subject/:id', updateAttandance);
 studentRouter.put('/markabsent/:subject/:id', markAbsent);

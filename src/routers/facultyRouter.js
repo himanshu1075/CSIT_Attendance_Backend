@@ -6,7 +6,7 @@ const facultyRouter = express.Router();
 
 facultyRouter.post('/savefaculty', saveFaculty);
 facultyRouter.get('/fetchallfaculties', fetchallfaculties);
-facultyRouter.put('/updatefaculty/:id',verifyToken, updateFaculty);
+facultyRouter.put('/updatefaculty/:id', updateFaculty);
 facultyRouter.post('/faculty/login', login);
 facultyRouter.delete('/deletefaculty/:id',verifyToken, deleteFaculty);
 
